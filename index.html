@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yassine Football</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080b09;color:white;font-family:Arial,sans-serif}
+header{padding:22px;text-align:center;background:#111713;border-bottom:3px solid #20e66b}
+h1 span,h2 span{color:#20e66b}
+.hero{text-align:center;padding:45px 15px;background:linear-gradient(140deg,#12351e,#080b09)}
+.hero h2{font-size:30px}
+input{padding:14px;width:65%;max-width:300px;border-radius:8px;border:0}
+button{padding:14px;border:0;border-radius:8px;background:#20e66b;font-weight:bold}
+section{padding:20px}
+.players{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{background:#151d18;border:1px solid #25452f;border-radius:12px;padding:18px 8px;text-align:center}
+.flag{font-size:38px}
+footer{text-align:center;padding:22px;color:#20e66b}
+</style>
+</head>
+<body>
+<header>
+<h1>Yassine <span>Football ⚽</span></h1>
+<p>عالم الكرة بين يديك</p>
+</header>
+<div class="hero">
+<h2>مرحبا بك فـ <span>عالم كرة القدم</span></h2>
+<p>اللاعبين • الأخبار • الفيديوهات</p>
+<input id="search" placeholder="قلب على لاعب...">
+<button onclick="findPlayer()">بحث 🔍</button>
+<p id="result"></p>
+</div>
+<section>
+<h2>⭐ <span>نجوم الكرة</span></h2>
+<div class="players">
+<div class="card"><div class="flag">🇲🇦</div><h3>أشرف حكيمي</h3><p>PSG</p></div>
+<div class="card"><div class="flag">🇦🇷</div><h3>ليونيل ميسي</h3><p>Inter Miami</p></div>
+<div class="card"><div class="flag">🇧🇷</div><h3>نيمار</h3><p>Santos</p></div>
+<div class="card"><div class="flag">🇵🇹</div><h3>كريستيانو رونالدو</h3><p>Al Nassr</p></div>
+</div>
+</section>
+<section>
+<h2>📰 <span>آخر الأخبار</span></h2>
+<div class="card">قصص اللاعبين وأخبار كرة القدم</div>
+</section>
+<footer>Yassine Football © 2026</footer>
+<script>
+function findPlayer(){
+let n=document.getElementById("search").value.trim().toLowerCase();
+let p={"hakimi":"أشرف حكيمي 🇲🇦 — PSG","حكيمي":"أشرف حكيمي 🇲🇦 — PSG","messi":"ليونيل ميسي 🇦🇷 — Inter Miami","ميسي":"ليونيل ميسي 🇦🇷 — Inter Miami","neymar":"نيمار 🇧🇷 — Santos","نيمار":"نيمار 🇧🇷 — Santos","ronaldo":"كريستيانو رونالدو 🇵🇹 — Al Nassr","رونالدو":"كريستيانو رونالدو 🇵🇹 — Al Nassr"};
+document.getElementById("result").textContent=p[n]||"اللاعب غير موجود ❌";
+}
+</script>
+</body>
+</html>
