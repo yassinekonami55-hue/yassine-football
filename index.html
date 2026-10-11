@@ -3,55 +3,104 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Yassine Football</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yassine Football ⚽</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#080b09;color:white;font-family:Arial,sans-serif}
-header{padding:22px;text-align:center;background:#111713;border-bottom:3px solid #20e66b}
-h1 span,h2 span{color:#20e66b}
-.hero{text-align:center;padding:45px 15px;background:linear-gradient(140deg,#12351e,#080b09)}
-.hero h2{font-size:30px}
-input{padding:14px;width:65%;max-width:300px;border-radius:8px;border:0}
-button{padding:14px;border:0;border-radius:8px;background:#20e66b;font-weight:bold}
-section{padding:20px}
-.players{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.card{background:#151d18;border:1px solid #25452f;border-radius:12px;padding:18px 8px;text-align:center}
-.flag{font-size:38px}
-footer{text-align:center;padding:22px;color:#20e66b}
+body{margin:0;background:#080d0a;color:white;font-family:Arial,sans-serif;text-align:center}
+header{background:#101812;padding:45px 15px;border-bottom:4px solid #20df76}
+header h1{font-size:clamp(28px,6vw,46px);margin:15px 0;color:white}
+header h1 span,.green{color:#20df76}
+header p{font-size:18px;color:#ddd}
+.hero{padding:65px 15px;background:linear-gradient(120deg,#0b2918,#101812)}
+.hero h2{font-size:clamp(25px,5vw,38px)}
+.hero p{font-size:20px}
+.search{display:flex;gap:8px;max-width:540px;margin:30px auto 0}
+.search input{min-width:0;flex:1;padding:17px;border:0;border-radius:12px;font-size:16px}
+.search button{border:0;border-radius:12px;background:#20df76;padding:15px;font-size:16px;font-weight:bold}
+main{padding:30px 15px}
+main h2{text-align:right;color:#20df76;margin:25px auto;max-width:700px}
+.players{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;max-width:700px;margin:auto}
+.card{background:#121d17;border:1px solid #263b2e;border-radius:18px;padding:30px 10px;min-height:210px}
+.flag{font-size:42px}
+.card h3{font-size:23px;margin:20px 0 12px}
+.card h3 a{color:white;text-decoration:none}
+.card h3 a:hover{color:#20df76}
+.card p{font-size:18px;color:#ccc}
+footer{padding:25px;background:#101812;color:#aaa;margin-top:35px}
+@media(max-width:350px){.players{gap:8px}.card h3{font-size:18px}.search button{padding:12px}}
 </style>
 </head>
 <body>
+
 <header>
-<h1>Yassine <span>Football ⚽</span></h1>
+<h1>⚽ Yassine <span>Football</span></h1>
 <p>عالم الكرة بين يديك</p>
 </header>
-<div class="hero">
-<h2>مرحبا بك فـ <span>عالم كرة القدم</span></h2>
-<p>اللاعبين • الأخبار • الفيديوهات</p>
-<input id="search" placeholder="قلب على لاعب...">
-<button onclick="findPlayer()">بحث 🔍</button>
-<p id="result"></p>
+
+<section class="hero">
+<h2>مرحبا بك في <span class="green">عالم كرة القدم</span></h2>
+<p>اللاعبين · الأخبار · الفيديوهات</p>
+<div class="search">
+<input id="searchInput" type="search" placeholder="قلب على لاعب...">
+<button type="button" onclick="searchPlayers()">🔍 بحث</button>
 </div>
-<section>
-<h2>⭐ <span>نجوم الكرة</span></h2>
-<div class="players">
-<h3><a href="messi.html" style="color:inherit;text-decoration:none">ليونيل ميسي</a></h3>
+</section>
+
+<main>
+<h2>⭐ نجوم الكرة</h2>
+
+<div class="players" id="players">
+
+<div class="card" data-name="أشرف حكيمي hakimi">
+<div class="flag">🇲🇦</div>
 <h3><a href="hakimi.html">أشرف حكيمي</a></h3>
-<h3><a href="neymar.html">نيمار جونيور</a></h3>
+<p>PSG</p>
 </div>
-</section>
-<section>
-<h2>📰 <span>آخر الأخبار</span></h2>
-<div class="card">قصص اللاعبين وأخبار كرة القدم</div>
-</section>
-<footer>Yassine Football © 2026</footer>
+
+<div class="card" data-name="ليونيل ميسي messi">
+<div class="flag">🇦🇷</div>
+<h3><a href="messi.html">ليونيل ميسي</a></h3>
+<p>Inter Miami</p>
+</div>
+
+<div class="card" data-name="نيمار نيمار جونيور neymar">
+<div class="flag">🇧🇷</div>
+<h3><a href="neymar.html">نيمار جونيور</a></h3>
+<p>Santos</p>
+</div>
+
+<div class="card" data-name="كريستيانو رونالدو ronaldo">
+<div class="flag">🇵🇹</div>
+<h3><a href="ronaldo.html">كريستيانو رونالدو</a></h3>
+<p>Al Nassr</p>
+</div>
+
+</div>
+<p id="message" style="color:#20df76"></p>
+</main>
+
+<footer>
+<p>Yassine Football ⚽</p>
+<p>جميع الحقوق محفوظة © 2026</p>
+</footer>
+
 <script>
-function findPlayer(){
-let n=document.getElementById("search").value.trim().toLowerCase();
-let p={"hakimi":"أشرف حكيمي 🇲🇦 — PSG","حكيمي":"أشرف حكيمي 🇲🇦 — PSG","messi":"ليونيل ميسي 🇦🇷 — Inter Miami","ميسي":"ليونيل ميسي 🇦🇷 — Inter Miami","neymar":"نيمار 🇧🇷 — Santos","نيمار":"نيمار 🇧🇷 — Santos","ronaldo":"كريستيانو رونالدو 🇵🇹 — Al Nassr","رونالدو":"كريستيانو رونالدو 🇵🇹 — Al Nassr"};
-document.getElementById("result").textContent=p[n]||"اللاعب غير موجود ❌";
+function searchPlayers(){
+const input=document.getElementById('searchInput').value.trim().toLowerCase();
+const cards=document.querySelectorAll('.card');
+let found=0;
+cards.forEach(card=>{
+const match=card.dataset.name.toLowerCase().includes(input);
+card.style.display=match?'block':'none';
+if(match)found++;
+});
+document.getElementById('message').textContent=found?'':'ما لقيناش هاد اللاعب.';
 }
+document.getElementById('searchInput').addEventListener('keydown',function(e){
+if(e.key==='Enter')searchPlayers();
+});
 </script>
+
 </body>
 </html>
