@@ -20,11 +20,11 @@ header p{font-size:18px;color:#ddd}
 .search button{border:0;border-radius:12px;background:#20df76;padding:15px;font-size:16px;font-weight:bold}
 main{padding:30px 15px}
 main h2{text-align:right;color:#20df76;margin:25px auto;max-width:700px}
-.players .card:last-child {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc((100% - 20px) / 2);
-  box-sizing: border-box;
+.players {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
 
 .card{background:#121d17;border:1px solid #263b2e;border-radius:18px;padding:30px 10px;min-height:210px}
 .flag{font-size:42px}
